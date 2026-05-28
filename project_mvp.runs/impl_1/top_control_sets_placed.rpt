@@ -1,0 +1,176 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
+| Date         : Wed Feb 25 15:35:46 2026
+| Host         : DESKTOP-M3I6DFL running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
+| Design       : top
+| Device       : xc7a100t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    98 |
+|    Minimum number of control sets                        |    98 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |   102 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    98 |
+| >= 0 to < 4        |     1 |
+| >= 4 to < 6        |     8 |
+| >= 6 to < 8        |     5 |
+| >= 8 to < 10       |     7 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |    66 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    10 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              66 |           38 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              66 |           18 |
+| Yes          | No                    | No                     |             117 |           44 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             249 |           85 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------------+-------------------------------------+-----------------------------------+------------------+----------------+--------------+
+|     Clock Signal     |            Enable Signal            |          Set/Reset Signal         | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------------+-------------------------------------+-----------------------------------+------------------+----------------+--------------+
+|  cam_xclk_OBUF_BUFG  | u_vga/v_cnt                         | u_vga/v_cnt[9]_i_1_n_0            |                1 |              3 |         3.00 |
+|  cam_pclk_IBUF_BUFG  |                                     |                                   |                4 |              4 |         1.00 |
+|  cam_pclk_IBUF_BUFG  |                                     | u_cap/FSM_onehot_phase[3]_i_1_n_0 |                1 |              4 |         4.00 |
+|  clk100mhz_IBUF_BUFG | u_ov7670_init/bit_cnt               |                                   |                2 |              4 |         2.00 |
+|  clk100mhz_IBUF_BUFG | u_ov7670_init/ack_phase[3]_i_1_n_0  |                                   |                1 |              4 |         4.00 |
+|  cam_pclk_IBUF_BUFG  | u_cap/wr_data[15]_i_2_n_0           | u_cap/wr_data[10]_i_1_n_0         |                1 |              4 |         4.00 |
+|  cam_pclk_IBUF_BUFG  | u_cap/wr_data[15]_i_2_n_0           | u_cap/wr_data[15]_i_1_n_0         |                1 |              4 |         4.00 |
+|  cam_pclk_IBUF_BUFG  | u_cap/wr_data[15]_i_2_n_0           | u_cap/wr_data[4]_i_1_n_0          |                1 |              4 |         4.00 |
+|  clk100mhz_IBUF_BUFG | u_ov7670_init/state[3]_i_1_n_0      |                                   |                2 |              4 |         2.00 |
+|  cam_pclk_IBUF_BUFG  | u_resize64/ox[5]_i_1_n_0            | cam_vsync_IBUF                    |                3 |              6 |         2.00 |
+|  cam_pclk_IBUF_BUFG  | u_resize64/oy[5]_i_1_n_0            | cam_vsync_IBUF                    |                2 |              6 |         3.00 |
+|  cam_xclk_OBUF_BUFG  | u_stream/x[5]_i_1_n_0               |                                   |                3 |              6 |         2.00 |
+|  cam_xclk_OBUF_BUFG  | u_stream/y[5]_i_1_n_0               |                                   |                1 |              6 |         6.00 |
+|  cam_xclk_OBUF_BUFG  | u_vga/v_cnt                         |                                   |                3 |              6 |         2.00 |
+|  cam_pclk_IBUF_BUFG  | u_cap/v_reg[7]_i_1_n_0              |                                   |                3 |              8 |         2.67 |
+|  clk100mhz_IBUF_BUFG | u_ov7670_init/byte_to_send          |                                   |                3 |              8 |         2.67 |
+|  cam_pclk_IBUF_BUFG  | u_cap/u_reg[7]_i_1_n_0              |                                   |                3 |              8 |         2.67 |
+|  clk100mhz_IBUF_BUFG | u_ov7670_init/reg_index[7]_i_1_n_0  |                                   |                3 |              8 |         2.67 |
+|  cam_xclk_OBUF_BUFG  | u_stream/pix_out[7]_i_1_n_0         |                                   |                4 |              8 |         2.00 |
+|  cam_pclk_IBUF_BUFG  | u_resize64/ox[5]_i_1_n_0            | u_resize64/RSTP                   |                3 |              9 |         3.00 |
+|  cam_pclk_IBUF_BUFG  | u_resize64/oy[5]_i_1_n_0            | u_resize64/y_tgt_i_1_n_0          |                3 |              9 |         3.00 |
+|  cam_xclk_OBUF_BUFG  |                                     | u_vga/v_cnt                       |                2 |             10 |         5.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_0_63_0_2_i_1_n_0      |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_1216_1279_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_1024_1087_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_1344_1407_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_1536_1599_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_1472_1535_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_128_191_0_2_i_1_n_0   |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_1408_1471_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_1600_1663_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_1280_1343_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_1984_2047_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_192_255_0_2_i_1_n_0   |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_1792_1855_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_1664_1727_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_1856_1919_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_1728_1791_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_1920_1983_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_2048_2111_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_2432_2495_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_2112_2175_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_2304_2367_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_2240_2303_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_2368_2431_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_2176_2239_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_2496_2559_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_2688_2751_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_2624_2687_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_1088_1151_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_2752_2815_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_2560_2623_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_2816_2879_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_3200_3263_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_320_383_0_2_i_1_n_0   |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_3008_3071_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_3072_3135_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_2944_3007_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_3136_3199_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_2880_2943_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_3648_3711_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_3328_3391_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_3392_3455_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_3456_3519_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_3264_3327_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_3520_3583_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_3584_3647_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_4032_4095_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_3712_3775_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_3840_3903_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_3904_3967_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_3968_4031_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_3776_3839_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_704_767_0_2_i_1_n_0   |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_64_127_0_2_i_1_n_0    |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_512_575_0_2_i_1_n_0   |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_448_511_0_2_i_1_n_0   |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_640_703_0_2_i_1_n_0   |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_768_831_0_2_i_1_n_0   |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_576_639_0_2_i_1_n_0   |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_896_959_0_2_i_1_n_0   |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_832_895_0_2_i_1_n_0   |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_960_1023_0_2_i_1_n_0  |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_256_319_0_2_i_1_n_0   |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_stream/rd_addr[11]_i_2_n_0        | u_vga/vs_reg_1                    |                2 |             12 |         6.00 |
+|  cam_xclk_OBUF_BUFG  | u_stream/p_0_in2_out                | u_cnn/ptr[0]_i_1_n_0              |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_1152_1215_0_2_i_1_n_0 |                                   |                3 |             12 |         4.00 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/img_reg_384_447_0_2_i_1_n_0   |                                   |                3 |             12 |         4.00 |
+|  cam_pclk_IBUF_BUFG  | u_cap/CEC                           | cam_vsync_IBUF                    |                7 |             18 |         2.57 |
+|  cam_pclk_IBUF_BUFG  | u_cap/wr_addr__8_i_1_n_0            | cam_vsync_IBUF                    |                4 |             19 |         4.75 |
+|  cam_pclk_IBUF_BUFG  | u_resize64/wr_addr[11]_i_1_n_0      |                                   |                7 |             20 |         2.86 |
+|  cam_xclk_OBUF_BUFG  |                                     | u_vga/x[9]_i_1__0_n_0             |                4 |             20 |         5.00 |
+|  clk100mhz_IBUF_BUFG |                                     |                                   |               10 |             23 |         2.30 |
+|  cam_pclk_IBUF_BUFG  | u_cap/y_full_pix[7]_i_1_n_0         |                                   |                9 |             27 |         3.00 |
+|  cam_pclk_IBUF_BUFG  | u_cap/wr_addr[16]_i_1_n_0           | cam_vsync_IBUF                    |                8 |             32 |         4.00 |
+|  cam_xclk_OBUF_BUFG  |                                     | u_vga/RSTP                        |               11 |             32 |         2.91 |
+|  cam_xclk_OBUF_BUFG  |                                     |                                   |               24 |             39 |         1.62 |
+|  cam_xclk_OBUF_BUFG  | u_cnn/running_reg_0                 | u_cnn/mac_index                   |               46 |            111 |         2.41 |
++----------------------+-------------------------------------+-----------------------------------+------------------+----------------+--------------+
+
+
